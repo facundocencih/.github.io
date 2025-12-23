@@ -1231,3 +1231,19 @@ img, video, iframe {
   }
   .video-slider{ gap: 10px; }
 }
+/* Fotos del equipo */
+.team-photo{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+/* En celular: que no queden angostas y que se vean grandes */
+@media (max-width: 575.98px){
+  .team-photo{
+    max-width: 320px;   /* podés subir/bajar */
+    margin: 0 auto;     /* centra la foto */
+  }
+}

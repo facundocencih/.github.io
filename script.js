@@ -51,7 +51,7 @@ document.querySelectorAll("#year").forEach(el => el.textContent = new Date().get
     index = (i + videos.length) % videos.length;
 
     mount.innerHTML = `
-      <video class="video-player" controls playsinline preload="metadata">
+      <video class="video-player" controls playsinline preload="none">
         <source src="${videos[index]}" type="video/mp4">
       </video>
     `;
