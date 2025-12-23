@@ -827,3 +827,94 @@
   border-radius: 12px;
   display: block;
 }
+/* ===== SECCIÓN VIDEO ===== */
+.video-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.video-title {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.video-subtitle {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Slider */
+.video-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Flechas */
+.video-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+/* Marco del video */
+.video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Imagen de fondo / contorno */
+.video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Montaje del video */
+#videoMount {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Video real */
+.video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Dots */
+.video-dots {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.video-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+}
+
+.video-dot.is-active {
+  background: #8b2d6b;
+}
