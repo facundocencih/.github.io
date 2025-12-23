@@ -13,7 +13,24 @@
 
   <link rel="stylesheet" href="styles.css" />
 </head>
+<script>
+  document.querySelectorAll('.video-lazy').forEach(box => {
+    box.addEventListener('click', () => {
+      const src = box.getAttribute('data-src');
 
+      const video = document.createElement('video');
+      video.src = src;
+      video.controls = true;
+      video.playsInline = true;
+      video.preload = 'metadata'; // clave: no baja todo
+      video.style.width = '100%';
+      video.style.borderRadius = '14px';
+
+      box.replaceWith(video);
+      video.play().catch(()=>{});
+    }, { once: true });
+  });
+</script>
 <body>
  
   <!-- NAVBAR -->

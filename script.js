@@ -31,53 +31,45 @@ document.querySelectorAll("#year").forEach(el => el.textContent = new Date().get
   const nextBtn = document.querySelector(".video-next");
   const dotsWrap = document.getElementById("videoDots");
 
-  if (!mount || !prevBtn || !nextBtn) return;
+  if (!mount) return;
 
   let index = 0;
+  let loaded = false;
 
   function renderDots() {
     if (!dotsWrap) return;
     dotsWrap.innerHTML = "";
     videos.forEach((_, i) => {
       const d = document.createElement("button");
-      d.type = "button";
       d.className = "video-dot" + (i === index ? " is-active" : "");
-      d.setAttribute("aria-label", `Ir al video ${i + 1}`);
-      d.addEventListener("click", () => loadVideo(i));
+      d.onclick = () => loadVideo(i);
       dotsWrap.appendChild(d);
     });
   }
 
-  function mountVideo(src) {
-    // Re-crea el <video> desde cero (soluciona el “no vuelve a cargar”)
-    mount.innerHTML = `
-      <video class="video-player" controls playsinline preload="metadata">
-        <source src="${src}?v=${Date.now()}" type="video/mp4" />
-        Tu navegador no soporta video HTML5.
-      </video>
-    `;
-  }
-
   function loadVideo(i) {
     index = (i + videos.length) % videos.length;
-    mountVideo(videos[index]);
-    renderDots();
 
-    // Intentar autoplay (si el navegador no deja, igual queda cargado)
-    const v = mount.querySelector("video");
-    if (v) v.play().catch(() => {});
+    mount.innerHTML = `
+      <video class="video-player" controls playsinline preload="metadata">
+        <source src="${videos[index]}" type="video/mp4">
+      </video>
+    `;
+
+    renderDots();
   }
 
-  prevBtn.addEventListener("click", () => loadVideo(index - 1));
-  nextBtn.addEventListener("click", () => loadVideo(index + 1));
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") loadVideo(index - 1);
-    if (e.key === "ArrowRight") loadVideo(index + 1);
+  mount.addEventListener("click", () => {
+    if (!loaded) {
+      loaded = true;
+      loadVideo(index);
+    }
   });
 
-  // Inicial
-  loadVideo(0);
+  prevBtn?.addEventListener("click", () => loadVideo(index - 1));
+  nextBtn?.addEventListener("click", () => loadVideo(index + 1));
+
+  renderDots();
 })();
 
 
