@@ -845,12 +845,10 @@
 
 /* Slider */
 .video-slider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
 }
-
 /* Flechas */
 .video-arrow {
   width: 48px;
@@ -899,12 +897,12 @@
   border-radius: 16px;
 }
 
-/* Dots */
 .video-dots {
-  margin-top: 16px;
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
+
+  margin-top: 16px;
 }
 
 .video-dot {
@@ -912,11 +910,13 @@
   height: 10px;
   border-radius: 50%;
   border: none;
-  background: #ccc;
+
+  background: #c9c9c9;
+  cursor: pointer;
 }
 
 .video-dot.is-active {
-  background: #8b2d6b;
+  background: #8b2c6f; /* tu violeta */
 }
 .footer-dev {
   background: #f4f5f7; /* gris suave */
@@ -943,4 +943,116 @@
 .footer-mail:hover {
   text-decoration: underline;
   color: #111827;
+}
+.video-lazy{
+  position: relative;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+.video-thumb{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.video-play{
+  position:absolute;
+  inset:0;
+  margin:auto;
+  width:72px;
+  height:72px;
+  border-radius:999px;
+  border:0;
+  background:rgba(0,0,0,.55);
+  color:#fff;
+  font-size:28px;
+}
+.video-play:hover{ background:rgba(0,0,0,.7); }
+.video-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.video-prev {
+  left: -22px;
+}
+
+.video-next {
+  right: -22px;
+}
+/* ===== VIDEO SLIDER FIX: centrado + flechas afuera ===== */
+.video-slider{
+  position: relative;
+  max-width: 1200px;     /* ancho máximo del bloque */
+  margin: 0 auto;        /* centra el slider */
+  padding: 0 80px;       /* espacio interno para que entren flechas */
+}
+
+.video-frame{
+  width: min(1100px, 92vw); /* hace el video grande pero responsive */
+  margin: 0 auto;           /* centra el marco */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 14px 40px rgba(0,0,0,.18);
+}
+
+.video-frame video,
+.video-frame iframe{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Flechas */
+.video-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;                 /* arriba del video */
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.92);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.video-prev{ left: 18px; }     /* dentro del padding del slider */
+.video-next{ right: 18px; }
+
+.video-nav:hover{ background: #fff; }
+
+/* Puntitos centrados abajo */
+.video-dots{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+/* Responsive: menos padding y flechas más cerca */
+@media (max-width: 768px){
+  .video-slider{ padding: 0 56px; }
+  .video-nav{ width: 44px; height: 44px; }
+  .video-prev{ left: 10px; }
+  .video-next{ right: 10px; }
 }
