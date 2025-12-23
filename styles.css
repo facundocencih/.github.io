@@ -1150,3 +1150,84 @@
   max-height: 420px;
   object-fit: cover;
 }
+/* 1) Evitar scroll/corte horizontal en móviles */
+html, body { 
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 2) Todo lo multimedia que nunca se pase del ancho */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+/* Navbar / marca: permitir wrap y achicar en pantallas chicas */
+.navbar .navbar-brand{
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.navbar .brand-title{
+  font-size: clamp(18px, 4.6vw, 28px);
+  line-height: 1.05;
+}
+
+.navbar .navbar-brand small{
+  display: block;
+  font-size: clamp(12px, 3.2vw, 16px);
+  white-space: normal;       /* permite salto */
+  overflow-wrap: anywhere;   /* corta si es muy largo */
+}
+
+/* Si tu logo es grande, limitá ancho en móvil */
+.brand-logo{
+  max-height: 46px;
+  width: auto;
+}/* Contenedor del slider */
+.video-slider{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* El marco del video: siempre centrado y responsive */
+.video-frame{
+  width: min(980px, 92vw);
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Thumb o video real */
+.video-thumb, 
+.video-frame video{
+  width: 100%;
+  display: block;
+  border-radius: 18px;
+}
+
+/* Flechas: fuera del video */
+.video-nav{
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.15);
+  background: rgba(255,255,255,.85);
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+/* En móvil: achicar flechas y que no tapen el video */
+@media (max-width: 576px){
+  .video-frame{ width: 92vw; }
+  .video-nav{
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+  .video-slider{ gap: 10px; }
+}
