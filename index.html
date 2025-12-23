@@ -97,22 +97,20 @@
     </p>
 
     <!-- SLIDER -->
-    <div class="video-slider">
-      <button class="video-nav video-prev" type="button" aria-label="Video anterior">‹</button>
+<div class="video-slider">
+  <button class="video-nav video-prev">‹</button>
 
-      <!-- Marco + video -->
-      <div class="video-frame">
-        <div id="videoMount" class="video-lazy">
-          <img src="portada1.png" alt="Video explicativo" class="video-thumb">
-          <button class="video-play" type="button" aria-label="Reproducir video">▶</button>
-        </div>
-      </div>
+  <div class="video-frame">
+    <video controls playsinline preload="metadata">
+      <source src="entrevista.mp4" type="video/mp4">
+    </video>
+  </div>
 
-      <button class="video-nav video-next" type="button" aria-label="Siguiente video">›</button>
-    </div>
+  <button class="video-nav video-next">›</button>
+</div>
 
-    <!-- Indicador -->
-    <div class="video-dots" id="videoDots"></div>
+<div class="video-dots" id="videoDots"></div>
+
   </div>
 </section>
 

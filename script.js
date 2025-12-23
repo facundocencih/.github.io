@@ -72,4 +72,12 @@ document.querySelectorAll("#year").forEach(el => el.textContent = new Date().get
   renderDots();
 })();
 
-
+// Fondo con movimiento suave SOLO en mobile
+if (window.innerWidth <= 768) {
+  window.addEventListener("scroll", () => {
+    document.documentElement.style.setProperty(
+      "--bg-offset",
+      `${window.scrollY * 0.15}px`
+    );
+  });
+}
