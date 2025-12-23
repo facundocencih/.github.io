@@ -1247,3 +1247,97 @@ img, video, iframe {
     margin: 0 auto;     /* centra la foto */
   }
 }
+/* Evita cortes laterales */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Tarjetas de contacto */
+.info-card{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  color: inherit;
+  word-break: break-word;
+}
+
+/* Fotos oficinas */
+.office-photo{
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+  object-fit: cover;
+}
+
+/* Ajustes mobile */
+@media (max-width: 576px){
+  .display-title{ font-size: 32px; }
+  .info-card{ font-size: 15px; }
+}
+/* =========================
+   VIDEO RESPONSIVE MOBILE
+========================= */
+
+/* Contenedor general */
+.video-slider {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Marco del video */
+.video-frame {
+  width: 100%;
+  max-width: 960px; /* desktop */
+  margin: 0 auto;
+}
+
+/* Video o portada */
+.video-frame video,
+.video-frame iframe,
+.video-thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+/* =========================
+   MOBILE (CELULAR)
+========================= */
+@media (max-width: 768px) {
+
+  /* Que el video use casi toda la pantalla */
+  .video-frame {
+    width: 94vw;          /* 🔑 CLAVE */
+    max-width: 94vw;
+  }
+
+  /* Flechas más afuera */
+  .video-nav {
+    width: 42px;
+    height: 42px;
+    font-size: 26px;
+  }
+
+  .video-prev {
+    left: -18px;
+  }
+
+  .video-next {
+    right: -18px;
+  }
+
+  /* Puntitos más abajo */
+  .video-dots {
+    margin-top: 14px;
+  }
+}
