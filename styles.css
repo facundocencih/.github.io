@@ -1025,7 +1025,7 @@ html, body {
     position:absolute;
     left:0;
     right:0;
-    top:-120px;                 /* 👈 arranca más arriba */
+    top:0px;                 /* 👈 arranca más arriba */
     height: calc(100% + 420px); /* 👈 y llega más abajo */
     background: url("hero-fondo.png") no-repeat center top;
     background-size: 115% auto;
@@ -1040,4 +1040,5 @@ html, body {
     z-index: 1;
   }
 }
+
 
