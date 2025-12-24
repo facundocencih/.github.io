@@ -79,7 +79,7 @@ document.querySelectorAll("#year").forEach(el => el.textContent = new Date().get
   const isMobile = window.matchMedia('(max-width: 768px)');
   if (!isMobile.matches) return;
 
-  const speed = 1; // más alto = acompaña más
+  const speed = 0.6; // más alto = acompaña más
 
   const update = () => {
     const scrollY = window.scrollY;
@@ -88,4 +88,4 @@ document.querySelectorAll("#year").forEach(el => el.textContent = new Date().get
 
   update();
   window.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
-})();
+})(); 
