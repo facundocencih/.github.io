@@ -72,12 +72,33 @@ document.querySelectorAll("#year").forEach(el => el.textContent = new Date().get
   renderDots();
 })();
 
-// Fondo con movimiento suave SOLO en mobile
-if (window.innerWidth <= 768) {
-  window.addEventListener("scroll", () => {
-    document.documentElement.style.setProperty(
-      "--bg-offset",
-      `${window.scrollY * 0.15}px`
-    );
-  });
-}
+(() => {
+  const hero = document.querySelector('.hero-bg');
+  if (!hero) return;
+
+  const mq = window.matchMedia('(max-width: 768px)');
+
+  let raf = null;
+  const speed = 0.18; // 0.12 = suave, 0.25 = más notorio
+
+  const update = () => {
+    raf = null;
+    if (!mq.matches) {
+      hero.style.removeProperty('--bg-offset');
+      return;
+    }
+    const r = hero.getBoundingClientRect();
+    const offset = Math.round(r.top * speed);
+    hero.style.setProperty('--bg-offset', `${offset}px`);
+  };
+
+  const onScroll = () => {
+    if (raf) return;
+    raf = requestAnimationFrame(update);
+  };
+
+  update();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', update);
+  mq.addEventListener?.('change', update);
+})();

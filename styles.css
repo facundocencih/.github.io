@@ -674,49 +674,9 @@
   border-color: rgba(242,183,5,.55);
   color: #111;
 }
-/* HERO CON IMAGEN DE FONDO */
-.hero-bg {
-  position: relative;
-  overflow: hidden;
-
-  /* fondo base blanco/gris */
-  background: linear-gradient(
-    to bottom,
-    #ffffff 0%,
-    #f4f4f4 100%
-  );
-
-  min-height: 620px;
-  padding: 140px 0 180px;
-}
-
-/* Imagen decorativa */
-.hero-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image: url("hero-fondo.png");
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: contain; /* NO recorta */
-
-  opacity: 0.18; /* 🔑 ahora se ve */
-  z-index: 0;
-}
-/* Capa blanca suave para legibilidad */
-.hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
 
 
-  z-index: 1;
-}
-.hero-bg > * {
-  position: relative;
-  z-index: 2;
-}
+
 /* ===== HERO CONTACTO ===== */
 .hero-bg--contact{
   min-height: 520px;
@@ -1025,29 +985,47 @@ html, body {
   }
 }
 
-/* ===== Fondo animado SOLO en celular ===== */
-@media (max-width: 768px) {
+/* ===== HERO (desktop + mobile) ===== */
+.hero-bg{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 100%);
+}
 
-  .hero-bg,
-  .video-section {
-    position: relative;
-    overflow: hidden;
-  }
+.hero-bg::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("hero-fondo.png") center bottom / contain no-repeat;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
 
-  .hero-bg::before,
-  .video-section::before {
-    content: "";
-    position: absolute;
-    inset: -20% 0;
-    background: url("fondo.png") center / cover no-repeat;
-    transform: translateY(var(--bg-offset, 0px));
-    will-change: transform;
-    z-index: 0;
-  }
+  /* desktop: quieto */
+  transform: translate3d(0,0,0);
+  will-change: transform;
+}
 
-  .hero-bg > *,
-  .video-section > * {
-    position: relative;
-    z-index: 1;
+.hero-bg::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,.10);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-bg > *{
+  position: relative;
+  z-index: 2;
+}
+
+/* SOLO CELU: permitimos movimiento (misma imagen) */
+@media (max-width: 768px){
+  .hero-bg::before{
+    opacity: 0.18;           /* igual que desktop */
+    background-size: contain; /* igual que desktop */
+    background-position: center bottom;
+    transform: translate3d(0, var(--bg-offset, 0px), 0);
   }
 }
