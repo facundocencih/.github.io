@@ -1012,10 +1012,11 @@ html, body {
   position: relative;
   z-index: 1;
 }
-
-/* SOLO CELU: permitir movimiento */
+/* Ajustes móviles */
 @media (max-width: 768px){
   .hero-bg::before{
+    background-size: 120% auto;   /* ⬅ menos ancho */
+    background-position: center top;
     transform: translate3d(0, var(--bg-offset, 0px), 0);
   }
 }
