@@ -76,29 +76,16 @@ document.querySelectorAll("#year").forEach(el => el.textContent = new Date().get
   const hero = document.querySelector('.hero-bg');
   if (!hero) return;
 
-  const mq = window.matchMedia('(max-width: 768px)');
+  const isMobile = window.matchMedia('(max-width: 768px)');
+  if (!isMobile.matches) return;
 
-  let raf = null;
-  const speed = 0.18; // 0.12 = suave, 0.25 = más notorio
+  const speed = 0.25; // más alto = acompaña más
 
   const update = () => {
-    raf = null;
-    if (!mq.matches) {
-      hero.style.removeProperty('--bg-offset');
-      return;
-    }
-    const r = hero.getBoundingClientRect();
-    const offset = Math.round(r.top * speed);
-    hero.style.setProperty('--bg-offset', `${offset}px`);
-  };
-
-  const onScroll = () => {
-    if (raf) return;
-    raf = requestAnimationFrame(update);
+    const scrollY = window.scrollY;
+    hero.style.setProperty('--bg-offset', `${scrollY * speed}px`);
   };
 
   update();
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', update);
-  mq.addEventListener?.('change', update);
+  window.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
 })();
