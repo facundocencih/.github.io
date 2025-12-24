@@ -1014,29 +1014,9 @@ html, body {
 }
 /* Ajustes móviles */
 @media (max-width: 768px){
-  .hero-bg{
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 220px; /* 👈 esto hace que el header sea más alto */
-  }
-
   .hero-bg::before{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    top:-120px;                 /* 👈 arranca más arriba */
-    height: calc(100% + 420px); /* 👈 y llega más abajo */
-    background: url("hero-fondo.png") no-repeat center top;
-    background-size: 115% auto;
+    background-size: 120% auto;   /* ⬅ menos ancho */
+    background-position: center top;
     transform: translate3d(0, var(--bg-offset, 0px), 0);
-    will-change: transform;
-    z-index: 0;
-    pointer-events:none;
-  }
-
-  .hero-bg > *{
-    position: relative;
-    z-index: 1;
   }
 }
