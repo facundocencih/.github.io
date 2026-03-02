@@ -1018,7 +1018,7 @@ html, body {
 @media (max-width: 768px) {
 
     .texto-sobre {
-        max-width: 320px;   /* ancho del texto */
+        max-width: 280px;   /* ancho del texto */
         margin-left: auto;
         margin-right: auto;
         padding-left: 10px;
@@ -1062,6 +1062,7 @@ html, body {
   }
     
 }
+
 
 
 
