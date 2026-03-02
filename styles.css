@@ -1007,7 +1007,13 @@ html, body {
   transform: translate3d(0,0,0);
   will-change: transform;
 }
-
+@media (max-width: 768px) {
+    .sobre-contenido {
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+    }
+}
 .hero-bg > *{
   position: relative;
   z-index: 1;
@@ -1039,6 +1045,8 @@ html, body {
     position: relative;
     z-index: 1;
   }
+    
 }
+
 
 
