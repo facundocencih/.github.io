@@ -1014,6 +1014,21 @@ html, body {
         hyphens: auto;
     }
 }
+/* Texto más angosto en celular */
+@media (max-width: 768px) {
+
+    .texto-sobre {
+        max-width: 320px;   /* ancho del texto */
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        text-align: justify;
+        line-height: 1.6;
+    }
+
+}
 .hero-bg > *{
   position: relative;
   z-index: 1;
@@ -1047,6 +1062,7 @@ html, body {
   }
     
 }
+
 
 
 
