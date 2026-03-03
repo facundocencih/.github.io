@@ -1087,30 +1087,18 @@ html, body {
 }
 }
 /* =====================================
-   TEXTOS CENTRADOS Y ENCUADRADOS MOBILE
+   TEXTO ENCUADRADO SOLO EN CELULAR
 ===================================== */
 @media (max-width: 768px) {
 
-  /* Limitar ancho para mejor lectura */
   .section p,
   .section h1,
   .section h2,
   .section h3 {
-    max-width: 92%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-
-  /* Textos largos más cómodos */
-  .texto-sobre,
-  .sobre-contenido,
-  .glass-card p {
-    max-width: 92%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    line-height: 1.7;
+      max-width: 360px;   /* ancho tipo columna */
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
   }
 
 }
