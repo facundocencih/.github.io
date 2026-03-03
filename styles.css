@@ -1102,6 +1102,22 @@ html, body {
   }
 
 }
+@media (max-width: 768px) {
+  /* Justificado ocupando la mayor parte del ancho (márgenes laterales pequeños) */
+  .texto-sobre,
+  .section p,
+  .section .text-muted-soft {
+    max-width: none;
+    margin: 0 14px;          /* margenes laterales pequeños */
+    padding: 0;
+    text-align: justify;     /* justificado */
+    text-justify: inter-word;
+    hyphens: auto;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+}
+
 
 
 
