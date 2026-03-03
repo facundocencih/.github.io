@@ -1085,7 +1085,17 @@ html, body {
     }
 
 }
+    @media (max-width: 768px) {
+
+    .section-alt p,
+    .section-alt h2,
+    .section-alt h3 {
+        text-align: center;
+    }
+
 }
+}
+
 
 
 
